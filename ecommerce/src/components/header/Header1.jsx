@@ -2,11 +2,12 @@ import './header.css'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { IconButton } from '@mui/material';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-
+import {useState} from 'react'
 const Header1 = () => {
+
+const [correct,]= useState(true)
+
   return (
     <div className='main'>
       <nav>
@@ -29,7 +30,7 @@ const Header1 = () => {
           <li>
 
       
-        {false  ? <Brightness7Icon  sx={{fontSize:"20px"}} /> : <Brightness4Icon  sx={{fontSize:"20px"}} />}
+        {correct? <Brightness7Icon  sx={{fontSize:"20px"}} /> : <Brightness7Icon  sx={{fontSize:"20px"}} />}
   
 
           </li>
