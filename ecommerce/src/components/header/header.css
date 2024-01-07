@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: #000;
-  padding: 0.5rem;
+  background: #000000;
+  padding: 1rem;
   color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
 }
 
 nav ul li {
@@ -17,10 +20,12 @@ nav ul .left-side {
   gap: 2rem;
   justify-content: left;
   margin-left: 5rem;
+  align-items: center;
 }
 
 .right-side {
   margin-right: 5rem;
+
 }
 
 .right-side ul {
@@ -28,10 +33,12 @@ nav ul .left-side {
   flex-direction: row;
   gap: 30px;
   justify-content: center;
+  align-items: center;
 }
 
 .right-side ul li {
   list-style: none;
+
 }
 
 .right-side ul li:hover {
@@ -42,6 +49,7 @@ nav ul .left-side {
 
 .right-side ul li {
   transition: all 0.2s ease-in-out;
+
 }
 
 nav ul li p:hover {
@@ -57,4 +65,5 @@ nav ul li .hot {
 nav ul li {
   display: flex;
   align-items: center;
+
 }

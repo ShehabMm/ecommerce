@@ -1,4 +1,10 @@
 import './header.css'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import { IconButton } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const Header1 = () => {
   return (
@@ -20,9 +26,16 @@ const Header1 = () => {
 
       <div className='right-side'>
         <ul>
-          <li>face</li>
-          <li>twitter</li>
-          <li>inst</li>
+          <li>
+
+      
+        {false  ? <Brightness7Icon  sx={{fontSize:"20px"}} /> : <Brightness4Icon  sx={{fontSize:"20px"}} />}
+  
+
+          </li>
+          <li><FacebookIcon   sx={{fontSize:"20px"}} /></li>
+          <li><InstagramIcon  sx={{fontSize:"20px"}}/></li>
+          <li><TwitterIcon  sx={{fontSize:"20px"}}/></li>
         </ul>
       </div>
 
