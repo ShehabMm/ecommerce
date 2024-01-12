@@ -83,7 +83,11 @@ const Header3 = () => {
       </Stack>
 
       <Stack>
-      <IconButton aria-label="menu" >
+      <IconButton  onClick={()=>{
+
+
+
+      }} aria-label="menu" >
         
   
         <DehazeIcon />
