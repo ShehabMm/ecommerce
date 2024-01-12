@@ -9,8 +9,10 @@ import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import { IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import SimpleListMenu from "./menu";
 
 const Search = styled("div")(({ theme }) => ({
+  flexGrow: 0.4,
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -18,7 +20,7 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  width: "100%",
+  minWidth: "300px",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
     width: "auto",
@@ -33,6 +35,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  color: "#777",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -63,7 +66,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Header2 = () => {
   return (
-    <Container sx={{ mt: 1, display: "flex", justifyContent: "space-between" }}>
+    <Container
+      sx={{
+        mt: 1,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
       <Stack sx={{ alignItems: "center" }}>
         <ShoppingCartOutlinedIcon />
         <Typography variant="body2" color="initial">
@@ -71,8 +81,18 @@ const Header2 = () => {
         </Typography>
       </Stack>
 
-      <Stack>
-        <Search sx={{ border: "2px solid black", borderRadius: "5%" }}>
+      <Stack sx={{ width: "400px" }}>
+        <Search
+          sx={{
+            display: "flex",
+            border: "1px solid black",
+            borderRadius: "22px",
+            height: "35px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            p: 0,
+          }}
+        >
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
@@ -80,17 +100,20 @@ const Header2 = () => {
             placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
           />
+
+          <SimpleListMenu />
         </Search>
       </Stack>
 
-      <Stack direction={"row"}>
-        <IconButton>
-          <Person2OutlinedIcon />
-        </IconButton>
+      <Stack direction={"row"} alignItems={"center"}>
         <IconButton aria-label="cart">
-          <StyledBadge badgeContent={4} color="secondary">
+          <StyledBadge badgeContent={4} color="primary">
             <ShoppingCartIcon />
           </StyledBadge>
+        </IconButton>
+
+        <IconButton>
+          <Person2OutlinedIcon />
         </IconButton>
       </Stack>
     </Container>
