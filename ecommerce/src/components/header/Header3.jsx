@@ -1,4 +1,4 @@
-import { Container, Stack, useTheme, IconButton } from "@mui/material";
+import { Container, Stack, useTheme, IconButton, Drawer, Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -10,6 +10,7 @@ import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined
 import ElectricBikeOutlinedIcon from '@mui/icons-material/ElectricBikeOutlined';
 import LaptopChromebookOutlinedIcon from '@mui/icons-material/LaptopChromebookOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import { Close } from "@mui/icons-material";
 const Header3 = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -21,6 +22,23 @@ const Header3 = () => {
   };
 
   const theme = useTheme();
+
+  const [state, setState] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+
   return (
     <Container
       sx={{
@@ -84,13 +102,30 @@ const Header3 = () => {
 
       <Stack>
       <IconButton  
-      onClick={toggleDrawer(anchor, true)}
+      onClick={toggleDrawer("top", true)}
       
       aria-label="menu" >
         
   
         <DehazeIcon />
         </IconButton>
+
+<Box >      
+        <Drawer   sx={{".MuiPaper-root ":{        height:"100vh"     }}}           anchor={"top"}
+            open={state["top"]}
+            onClose={toggleDrawer("top", false)}
+          >
+ddddddddddd   
+
+<Box>
+<IconButton 
+    onClick={toggleDrawer("top", false)}
+>
+<Close       />
+</IconButton>
+</Box>
+    </Drawer>
+    </Box>
       </Stack>
     </Container>
   );
