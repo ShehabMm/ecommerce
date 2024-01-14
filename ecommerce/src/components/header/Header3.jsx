@@ -1,4 +1,19 @@
-import { Container, Stack, useTheme, IconButton, Drawer, Box } from "@mui/material";
+import {
+  Container,
+  Stack,
+  useTheme,
+  IconButton,
+  Drawer,
+  Box,
+  Accordion,
+  AccordionSummary,
+  Typography,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  useMediaQuery,
+} from "@mui/material";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -6,11 +21,13 @@ import { useState } from "react";
 import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRightOutlined";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import DehazeIcon from "@mui/icons-material/Dehaze";
-import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
-import ElectricBikeOutlinedIcon from '@mui/icons-material/ElectricBikeOutlined';
-import LaptopChromebookOutlinedIcon from '@mui/icons-material/LaptopChromebookOutlined';
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
+import ElectricBikeOutlinedIcon from "@mui/icons-material/ElectricBikeOutlined";
+import LaptopChromebookOutlinedIcon from "@mui/icons-material/LaptopChromebookOutlined";
+import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import { Close } from "@mui/icons-material";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import Links from './links'
 const Header3 = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -31,13 +48,15 @@ const Header3 = () => {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
     setState({ ...state, [anchor]: open });
   };
-
 
   return (
     <Container
@@ -78,7 +97,6 @@ const Header3 = () => {
         </Button>
 
         <Menu
-      
           id="basic-menu"
           anchorEl={anchorEl}
           open={open}
@@ -87,45 +105,142 @@ const Header3 = () => {
             "aria-labelledby": "basic-button",
           }}
         >
-          <MenuItem  sx={{ display:"flex", justifyContent:"left",gap:2, width:"200px"}}onClick={handleClose}>
-            <SportsEsportsOutlinedIcon/>Games</MenuItem>
-          <MenuItem  sx={{ display:"flex", justifyContent:"left",gap:2, width:"200px"}} onClick={handleClose}>  <ElectricBikeOutlinedIcon/> Bikes</MenuItem>
-          <MenuItem  sx={{ display:"flex", justifyContent:"left",gap:2, width:"200px"}} onClick={handleClose}>
-            <LaptopChromebookOutlinedIcon/>
-            Electronics</MenuItem>
-          <MenuItem   sx={{ display:"flex", justifyContent:"left",gap:2, width:"200px"}}onClick={handleClose}>
-            <MenuBookOutlinedIcon/>
-            Books</MenuItem>
-
+          <MenuItem
+            sx={{
+              display: "flex",
+              justifyContent: "left",
+              gap: 2,
+              width: "200px",
+            }}
+            onClick={handleClose}
+          >
+            <SportsEsportsOutlinedIcon />
+            Games
+          </MenuItem>
+          <MenuItem
+            sx={{
+              display: "flex",
+              justifyContent: "left",
+              gap: 2,
+              width: "200px",
+            }}
+            onClick={handleClose}
+          >
+            {" "}
+            <ElectricBikeOutlinedIcon /> Bikes
+          </MenuItem>
+          <MenuItem
+            sx={{
+              display: "flex",
+              justifyContent: "left",
+              gap: 2,
+              width: "200px",
+            }}
+            onClick={handleClose}
+          >
+            <LaptopChromebookOutlinedIcon />
+            Electronics
+          </MenuItem>
+          <MenuItem
+            sx={{
+              display: "flex",
+              justifyContent: "left",
+              gap: 2,
+              width: "200px",
+            }}
+            onClick={handleClose}
+          >
+            <MenuBookOutlinedIcon />
+            Books
+          </MenuItem>
         </Menu>
       </Stack>
-
+      <Links/>
       <Stack>
-      <IconButton  
-      onClick={toggleDrawer("top", true)}
-      
-      aria-label="menu" >
-        
-  
-        <DehazeIcon />
-        </IconButton>
+        {useMediaQuery("(max-width:1000px)") && (
+          <IconButton onClick={toggleDrawer("top", true)} aria-label="menu">
+            <DehazeIcon />
+          </IconButton>
+        )}
 
-<Box >      
-        <Drawer   sx={{".MuiPaper-root ":{        height:"100vh"     }}}           anchor={"top"}
+        <Box>
+          <Drawer
+            sx={{
+              ".MuiPaper-root .MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-r3cmis-MuiPaper-root-MuiAccordion-root ":
+                { height: "80vh" },
+            }}
+            anchor={"top"}
             open={state["top"]}
             onClose={toggleDrawer("top", false)}
           >
-ddddddddddd   
+            ddddddddddd
+            <Box
+              sx={{
+                width: "300px",
+                mx: "auto",
+                textAlign: "right",
+                mt: 6,
+                pb: 2,
+              }}
+            >
+              <IconButton
+                sx={{
+                  ":hover": {
+                    rotate: "360deg",
+                    transition: "all 0.3s",
+                    color: "red",
+                  },
+                  mb: 2,
+                }}
+                onClick={toggleDrawer("top", false)}
+              >
+                <Close />
+              </IconButton>
 
-<Box>
-<IconButton 
-    onClick={toggleDrawer("top", false)}
->
-<Close       />
-</IconButton>
-</Box>
-    </Drawer>
-    </Box>
+              {[
+                { name: "Home", subname: ["link1", "link2"] },
+                { name: "MegaMenu", subname: ["link1", "link2"] },
+                { name: "Office", subname: ["link1", "link2"] },
+              ].map((item) => {
+                return (
+                  <div
+                    key={item.name}
+                    style={{
+                      maxHeight: "180px",
+                      overflow: "hidden",
+                      padding: 0,
+                      margin: 0,
+                      gap: 0,
+                    }}
+                  >
+                    <Accordion sx={{ padding: 0, margin: 0 }}>
+                      <AccordionSummary
+                        expandIcon={<ArrowDownwardIcon />}
+                        aria-controls="panel1-content"
+                        id="panel1-header"
+                      >
+                        <Typography sx={{ my: 0 }}>{item.name}</Typography>
+                      </AccordionSummary>
+
+                      <List sx={{ pt: 0, m: 0 }}>
+                        <ListItem disablePadding>
+                          <ListItemButton>
+                            <ListItemText primary={item.subname[0]} />
+                          </ListItemButton>
+                        </ListItem>
+                        <ListItem disablePadding>
+                          <ListItemButton component="a" href="#simple-list">
+                            <ListItemText primary={item.subname[1]} />
+                          </ListItemButton>
+                        </ListItem>
+                      </List>
+                    </Accordion>
+                  </div>
+                );
+              })}
+            </Box>
+          </Drawer>
+        </Box>
       </Stack>
     </Container>
   );
