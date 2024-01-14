@@ -155,7 +155,22 @@ const Header3 = () => {
           </MenuItem>
         </Menu>
       </Stack>
-      <Links/>
+
+      {useMediaQuery("(min-width:1000px)") && ( 
+      <> 
+      <Links name={"Home"}/>
+      <Links name={"Mega Menu"}/>
+      <Links name={"Full screen menu"}/>
+      <Links name={"Vendor's account"}/>
+      <Links name={"Pages"}/>
+      <Links name={"User's account"}/>
+
+
+      </>)}
+
+
+  
+
       <Stack>
         {useMediaQuery("(max-width:1000px)") && (
           <IconButton onClick={toggleDrawer("top", true)} aria-label="menu">
