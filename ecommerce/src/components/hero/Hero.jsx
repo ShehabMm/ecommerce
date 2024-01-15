@@ -2,7 +2,7 @@
 const Hero = () => {
   return (
     <div>
-      
+      ggg
     </div>
   );
 }
