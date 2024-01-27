@@ -1,17 +1,106 @@
-import { Box, Container } from "@mui/material";
+import { ArrowForward } from "@mui/icons-material";
+import { Box, Container, Link, Stack, Typography } from "@mui/material";
+import Slider from "./Slider";
 
 const Hero = () => {
   return (
-    <Container sx={{ mt: 2.5, display: "flex", alignItems: "center" }}>
-      <Box>Slider</Box>
+    <Container
+      sx={{ mt: 2.5, display: "flex", alignItems: "center", height: "500px" }}
+    >
+        <Box sx={{display:"flex", flexGrow:1}}>   
+<Slider/>
+</Box>
 
-      <Box>
-        <Box>
-          <img src="../assets/banner-17.jpg" alt="shoes picture" />
+      <Box  sx={{display:{xs:"none", md:"block"}}} >
+        <Box sx={{ position: "relative", height: "180px", width: "240px" }}>
+          <img
+            src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1676312063/cld-sample-5.jpg"
+            alt="shoes picture"
+            style={{ width: "240px" , height: "180px"}}
+          />
+
+          <Stack
+            sx={{
+              position: "absolute",
+              top: "50%",
+              display: "flex",
+              transform: "translateY(-50%)",
+              left:30
+            }}
+          >
+            <Typography
+              variant="caption"
+              color="initial"
+              sx={{ color: "#283445", fontSize: "18px" }}
+            >
+              New Arrival
+            </Typography>
+            <Typography variant="h6" sx={{ color: "#283445" }}>
+              Summer{" "}
+            </Typography>
+            <Typography variant="h6" sx={{ color: "#283445" }}>
+              SALE 20% OFF{" "}
+            </Typography>
+
+            <Link
+              sx={{
+                color: "#283445",
+                display: "center",
+                gap: "5px",
+                transition: "0.2s",
+                "&:hover": { color: "#D23F57", cursor: "pointer" },
+              }}
+            >
+              shop now
+              <ArrowForward sx={{ fontSize: "13px" }} />
+            </Link>
+          </Stack>
         </Box>
-        <Box>
-          
-          <img src="../assets/banner-16.jpg" alt="computer picture" />
+
+        <Box
+          sx={{ width: "240px", height: "180px", mt: 2, position: "relative" }}
+        >
+          <img
+            src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1706307139/How-to-Choose-a-Laptop-August-2023-Gear_zpuuhc.jpg"
+            alt="computer picture"
+            style={{ width: "240px",  }}
+          />
+          <Stack
+            sx={{
+              position: "absolute",
+              top: "50%",
+              display: "flex",
+              transform: "translateY(-50%)",
+              left:30
+            }}
+          >
+            <Typography
+              variant="caption"
+              color="initial"
+              sx={{ color: "white", fontSize: "18px" }}
+            >
+Gaming 4K
+            </Typography>
+            <Typography variant="h6" sx={{ color: "white" }}>
+              Desktops & Laptops
+            </Typography>
+            <Typography variant="h6" sx={{ color: "white" }}>
+              SALE 10% OFF
+            </Typography>
+
+            <Link
+              sx={{
+                color: "#283445",
+                display: "center",
+                gap: "5px",
+                transition: "0.2s",
+                "&:hover": { color: "#D23F57", cursor: "pointer" },
+              }}
+            >
+              shop now
+              <ArrowForward sx={{ fontSize: "13px" }} />
+            </Link>
+          </Stack>
         </Box>
       </Box>
     </Container>
