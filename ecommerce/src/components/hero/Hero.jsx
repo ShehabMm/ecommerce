@@ -7,9 +7,7 @@ const Hero = () => {
     <Container
       sx={{ mt: 2.5, display: "flex", alignItems: "center", height: "500px" }}
     >
-        <Box sx={{display:"flex", flexGrow:1}}>   
 <Slider/>
-</Box>
 
       <Box  sx={{display:{xs:"none", md:"block"}}} >
         <Box sx={{ position: "relative", height: "180px", width: "240px" }}>

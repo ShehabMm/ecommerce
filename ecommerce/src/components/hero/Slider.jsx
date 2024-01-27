@@ -21,7 +21,23 @@ const Slider = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>
+          
+      
+          <img src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1706334825/banner-15_wz3hzx.jpg" alt="" />
+          
+          </SwiperSlide>
+
+
+          <SwiperSlide>
+          
+      
+          <img src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1706334825/banner-15_wz3hzx.jpg" alt="" />
+          
+          </SwiperSlide>
+
+
+
       
       </Swiper>
     </>
