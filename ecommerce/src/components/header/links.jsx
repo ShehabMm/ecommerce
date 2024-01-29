@@ -40,6 +40,7 @@ const Links = ({name}) => {
           left: "50%",
           transform: "translateX(-50%)",
           display: "none",
+          zIndex:2
         }}
       >
         <Paper className="pap" sx={{ mt: 2 }}>

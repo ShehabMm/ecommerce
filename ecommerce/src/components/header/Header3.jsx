@@ -65,6 +65,7 @@ const Header3 = () => {
         justifyContent: "space-between",
         alignItems: "center",
         mt: 5,
+      
       }}
     >
       <Stack
@@ -123,6 +124,7 @@ const Header3 = () => {
               justifyContent: "left",
               gap: 2,
               width: "200px",
+              zIndex:50,
             }}
             onClick={handleClose}
           >
