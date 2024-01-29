@@ -5,12 +5,12 @@ import Slider from "./Slider";
 const Hero = () => {
   return (
     <Container
-      sx={{ mt: 2.5, display: "flex", alignItems: "center", height: "500px" }}
+      sx={{  position:"relative",width:"100%",  display: "flex", alignItems: "center", height: "500px", }}
     >
 <Slider/>
 
-      <Box  sx={{display:{xs:"none", md:"block"}}} >
-        <Box sx={{ position: "relative", height: "180px", width: "240px" }}>
+      <Box  sx={{display:{xs:"none", md:"flex"},flexDirection:"column",justifyContent:"center",  height:"100%", alignItems:"center",  transform:"translateY(8%)", top:"50%"}} >
+        <Box sx={{ position: "relative", height: "180px", minWidth: "140px" }}>
           <img
             src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1676312063/cld-sample-5.jpg"
             alt="shoes picture"

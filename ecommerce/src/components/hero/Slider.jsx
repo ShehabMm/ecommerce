@@ -9,11 +9,12 @@ import './stylesss.css';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import { Container } from '@mui/material';
 
 const Slider = () => {
   return (
 
-          <>
+          <Container sx={{minWidth:"500px", height:"500px", mt:5}}>
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -40,7 +41,7 @@ const Slider = () => {
 
       
       </Swiper>
-    </>
+    </Container>
 
 
   );
