@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Container, Stack } from '@mui/material';
+import { Typography, IconButton } from '@mui/material';
+import BoltIcon from '@mui/icons-material/Bolt';
 
 const Hero2 = () => {
 
@@ -16,7 +18,15 @@ const Hero2 = () => {
 
 
 
-<Box>box1</Box>
+<Box>
+<IconButton aria-label="iconButtom"   >
+  <BoltIcon  className='bolt'  />
+</IconButton >
+
+  <Typography variant="body1" color="initial">Fast delivery</Typography>
+  <Typography variant="body1" color="initial">Start form 10$</Typography>
+
+</Box>
 
 
 
