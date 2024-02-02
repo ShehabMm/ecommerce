@@ -70,11 +70,11 @@ const Dialogue = () => {
 <Typography variant="h5" sx={{fontWeight:"bold"}} color="error">12.99$</Typography>
 <Typography variant="h6" color="initial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deleniti debitis accusamus quidem aperiam in porro, voluptas voluptate inventore repellat nesciunt! Rem modi ea asperiores eum voluptates iste, eveniet quis aperiam nesciunt, animi eligendi dolores nihil natus. Pariatur, dolore aspernatur!</Typography>
 
-<Stack direction="row">
+<Stack direction="row" gap={2}>
 
   {["aaa", "bbb"].map(()=>{
 
-return(        <img src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" />
+return(        <img style={{width:"200px"}} src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" />
 )
 
 
