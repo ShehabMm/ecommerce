@@ -6,8 +6,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Container, Rating, Stack } from '@mui/material';
 import { AddShoppingCartOutlined } from '@mui/icons-material';
+import Dialogue from './Dialogue';
+import { useState } from 'react';
 
 export default function MediaCard() {
+
+  const [yes, setyes] = useState(true);
   return (
     <Container sx={{mt:5}}>
     <Stack direction="row" sx={{gap:5, alignItems:"center", flexWrap:"wrap", justifyContent:"center"}}> 
@@ -31,16 +35,21 @@ return(    <Card key={item} sx={{ maxWidth: 333, mt:5 }}>
     </Typography>
   </CardContent>
   <CardActions sx={{justifyContent:"space-between"}}>
-    <Button sx={{textTransform:"capitalize"}} size="large">
+    <Button onClick={()=>{
+
+      {yes? (<Dialogue/>):null}
+
+    }}    sx={{textTransform:"capitalize"}} size="large">
     <AddShoppingCartOutlined sx={{mr:1}}/>
-Add to Cart</Button>
+    <Dialogue/>
+    </Button>
 <Rating name="read-only" precision={0.5} value={4.5 } readOnly />        
   </CardActions>
 </Card>                      )
 
   })}
   
-  
+
     </Stack>
     </Container>
   );
