@@ -9,7 +9,7 @@ const Header1 = () => {
 const [correct,]= useState(true)
 
   return (
-    <div className='main'>
+    <div className='main' id="up">
       <nav>
         <ul>
           <div className='left-side'>

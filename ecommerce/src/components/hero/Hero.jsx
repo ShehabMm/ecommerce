@@ -4,7 +4,7 @@ import Slider from "./Slider";
 
 const Hero = () => {
   return (
-    <Container
+    <Container id="up"
       sx={{  position:"relative",width:"100%",  display: "flex", alignItems: "center", height: "500px", }}
     >
 <Slider/>

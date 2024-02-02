@@ -3,6 +3,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import {useState} from 'react'
 import './main.css'
+import Scrollup from "./scrollup";
 const Main = () => {
 
   const [alignment, setAlignment] = useState('web');
@@ -11,7 +12,7 @@ const Main = () => {
     setAlignment(newAlignment);
   };
   return (
-    <Container sx={{position:'relative', height:"20vh",mt:4,  display:"flex", gap:5,justifyContent:"space-between", alignItems:"center" }}>
+    <Container id="up" sx={{position:'relative', height:"20vh",mt:4,  display:"flex", gap:5,justifyContent:"space-between", alignItems:"center" }}>
       
       <Box sx={{display:{xs:"none", md:"block"}}}>
 <Typography variant="h6" color="initial">Selected Products</Typography>
@@ -35,8 +36,7 @@ const Main = () => {
       
       </Box>
   <Box sx={{height:"100vh"}}> </Box>
-
-
+< Scrollup/>
     </Container>
   );
 }
