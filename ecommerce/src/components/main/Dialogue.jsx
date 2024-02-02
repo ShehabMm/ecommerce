@@ -72,7 +72,7 @@ const Dialogue = () => {
 
 <Stack sx={{flexDirection:{xs:"column", md:"row", }, alignSelf:"center"  }} gap={2}>
 
-  {["aaa", "bbb"].map(()=>{  
+  {["aaa", "bbb", "ccc"].map(()=>{  
 
 return(        <img style={{width:"200px"}} src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" />
 )
