@@ -58,19 +58,19 @@ const Dialogue = () => {
         </IconButton>
         <DialogContent dividers         
 >
-        <Box sx={{ display:"flex",  width:"100%", height:"60vh", justifyContent:"space-between"}}>
+        <Box sx={{ display:"flex",  width:"100%", height:"60vh", justifyContent:"space-between", flexDirection:{xs:"column", md:"row"}, }}>
 
         <Stack sx={{width:"30%", height:"100%", justifyContent:"center", alignItems:"center"}}>
 <img style={{height:"60%", width:"100%"}} src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" /></Stack>
 
 
-<Stack sx={{ p:2,width:"70%", textAlign:"left", gap:2, ml:2}}>
+<Stack sx={{display:"flex",justifyContent:"center", p:2,width:"70%", textAlign:{xs:"center", md:"left"}, gap:2, ml:2, alignSelf:"center"}}>
 
 <Typography variant="h3" sx={{fontWeight:"bold"}} color="initial">Women Fashion</Typography>
 <Typography variant="h5" sx={{fontWeight:"bold"}} color="error">12.99$</Typography>
 <Typography variant="h6" color="initial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deleniti debitis accusamus quidem aperiam in porro, voluptas voluptate inventore repellat nesciunt! Rem modi ea asperiores eum voluptates iste, eveniet quis aperiam nesciunt, animi eligendi dolores nihil natus. Pariatur, dolore aspernatur!</Typography>
 
-<Stack direction="row" gap={2}>
+<Stack sx={{flexDirection:{xs:"column", md:"row", }, alignSelf:"center"  }} gap={2}>
 
   {["aaa", "bbb"].map(()=>{
 
