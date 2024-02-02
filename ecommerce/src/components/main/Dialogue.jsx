@@ -8,6 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
+import { Paper , Box, Stack } from '@mui/material';
 
 const Dialogue = () => {
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -28,16 +29,18 @@ const Dialogue = () => {
   };
 
   return (
-    <div>
-          <React.Fragment>
+    <Box  >
+          <React.Fragment  >
       <Button variant="outlined" onClick={handleClickOpen}>
         Add To Cart
       </Button>
       <BootstrapDialog
+      sx={{".MuiPaper-root":{ minWidth:{xs:"100vw", md:"60vw"}, overflow:"hidden"  }}}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
+        
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
           Modal title
         </DialogTitle>
@@ -53,21 +56,28 @@ const Dialogue = () => {
         >
           <CloseIcon />
         </IconButton>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+        <DialogContent dividers         
+>
+        <Box sx={{ display:"flex",  width:"100%", height:"60vh", justifyContent:"space-between"}}>
+
+        <Stack sx={{width:"30%", height:"100%", justifyContent:"center", alignItems:"center"}}>
+<img style={{height:"60%", width:"100%"}} src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" /></Stack>
+
+
+<Stack sx={{ p:2,width:"70%", textAlign:"left", gap:2, ml:2}}>
+
+<Typography variant="h3" sx={{fontWeight:"bold"}} color="initial">Women Fashion</Typography>
+<Typography variant="h5" sx={{fontWeight:"bold"}} color="error">12.99$</Typography>
+<Typography variant="h6" color="initial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deleniti debitis accusamus quidem aperiam in porro, voluptas voluptate inventore repellat nesciunt! Rem modi ea asperiores eum voluptates iste, eveniet quis aperiam nesciunt, animi eligendi dolores nihil natus. Pariatur, dolore aspernatur!</Typography>
+
+<Button sx={{width:"20%"}} variant="contained" color="primary">
+  Buy Now
+</Button>
+</Stack>
+  
+        </Box>
+        
+
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
@@ -77,7 +87,7 @@ const Dialogue = () => {
       </BootstrapDialog>
     </React.Fragment>
 
-    </div>
+    </Box>
   );
 }
 
