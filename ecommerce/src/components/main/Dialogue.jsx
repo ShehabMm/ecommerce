@@ -70,6 +70,17 @@ const Dialogue = () => {
 <Typography variant="h5" sx={{fontWeight:"bold"}} color="error">12.99$</Typography>
 <Typography variant="h6" color="initial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deleniti debitis accusamus quidem aperiam in porro, voluptas voluptate inventore repellat nesciunt! Rem modi ea asperiores eum voluptates iste, eveniet quis aperiam nesciunt, animi eligendi dolores nihil natus. Pariatur, dolore aspernatur!</Typography>
 
+<Stack direction="row">
+
+  {["aaa", "bbb"].map(()=>{
+
+return(        <img src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" />
+)
+
+
+  })}
+  </Stack>
+
 <Button sx={{width:"20%"}} variant="contained" color="primary">
   Buy Now
 </Button>
