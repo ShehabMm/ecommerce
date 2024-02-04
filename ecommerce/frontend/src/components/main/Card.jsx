@@ -7,11 +7,26 @@ import Typography from '@mui/material/Typography';
 import { Container, Rating, Stack } from '@mui/material';
 import { AddShoppingCartOutlined } from '@mui/icons-material';
 import Dialogue from './Dialogue';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function MediaCard() {
 
+
+
+
   const [yes, setyes] = useState(true);
+useEffect(()=>{
+
+const products = axios.get("http://localhost:1337/api/products").then (()=>{
+return data.data
+
+})
+
+
+}, [])
+
+console.log(products)
   return (
     <Container sx={{mt:5}}>
     <Stack direction="row" sx={{gap:5, alignItems:"center", flexWrap:"wrap", justifyContent:"center"}}> 
