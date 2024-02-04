@@ -11,22 +11,30 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function MediaCard() {
+const [products, setproducts] = useState([]);
 
+const getData = async()=>{
+const pro = await axios.get("http://localhost:1337/api/products").then((res)=>{
+  setproducts(res.data.data[0].attributes)
+
+
+}).catch((err)=>{
+
+  console.log(err)
+})
+
+
+}
 
 
 
   const [yes, setyes] = useState(true);
 useEffect(()=>{
-
-const products = axios.get("http://localhost:1337/api/products").then (()=>{
-return data.data
-
-})
-
+  getData()
+  console.log(products)
 
 }, [])
 
-console.log(products)
   return (
     <Container sx={{mt:5}}>
     <Stack direction="row" sx={{gap:5, alignItems:"center", flexWrap:"wrap", justifyContent:"center"}}> 
