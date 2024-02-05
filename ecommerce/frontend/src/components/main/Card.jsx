@@ -10,13 +10,14 @@ import Dialogue from './Dialogue';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
 export default function MediaCard() {
 const [products, setproducts] = useState([]);
 
 const getData = async()=>{
-const pro = await axios.get("http://localhost:1337/api/products").then((res)=>{
+const pro = await axios.get(`${import.meta.env.VITE_BASEURL}/api/products?populate=*`).then((res)=>{
   setproducts(res.data.data)
-
+console.log(res.data.data[0].attributes.productImg)
 
 }).catch((err)=>{
 
@@ -51,7 +52,7 @@ if (products) {
   return(    <Card key={item} sx={{ maxWidth: 333, mt:5 }}>
     <CardMedia
       sx={{ height: 277 }}
-      image={`http://localhost:1337/${item.attributes.productImg.data[0].attributes.url}`}
+      image={`${import.meta.env.VITE_BASEURL}${item.attributes.productImg.data[1].attributes.url}`}
     />
     <CardContent>
       <Typography gutterBottom variant="h5" component="div">
