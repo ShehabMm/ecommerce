@@ -15,7 +15,7 @@ const [products, setproducts] = useState([]);
 
 const getData = async()=>{
 const pro = await axios.get("http://localhost:1337/api/products").then((res)=>{
-  setproducts(res.data.data[0].attributes)
+  setproducts(res.data.data)
 
 
 }).catch((err)=>{
@@ -28,6 +28,8 @@ const pro = await axios.get("http://localhost:1337/api/products").then((res)=>{
 
 
 
+
+
   const [yes, setyes] = useState(true);
 useEffect(()=>{
   getData()
@@ -35,40 +37,49 @@ useEffect(()=>{
 
 }, [])
 
+
+
   return (
     <Container sx={{mt:5}}>
     <Stack direction="row" sx={{gap:5, alignItems:"center", flexWrap:"wrap", justifyContent:"center"}}> 
   
-  {["aa", "bb", "cc", "dd"].map((item)=>{
+  {products.map((item)=>{
+
+if (products) {
+  
+  
+  return(    <Card key={item} sx={{ maxWidth: 333, mt:5 }}>
+    <CardMedia
+      sx={{ height: 277 }}
+      image={`http://localhost:1337/${item.attributes.productImg.data[0].attributes.url}`}
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+        {item.attributes.productTitle}
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+{item.attributes.productDescription}      </Typography>
+
+<Typography variant="body2" color="text.secondary">
+{item.attributes.productPrice }   $   </Typography>
+    </CardContent>
+    <CardActions sx={{justifyContent:"space-between"}}>
+      <Button onClick={()=>{
+  
+        {yes? (<Dialogue/>):null}
+  
+      }}    sx={{textTransform:"capitalize"}} size="large">
+      <AddShoppingCartOutlined sx={{mr:1}}/>
+      <Dialogue/>
+      </Button>
+  <Rating name="read-only" precision={0.5} value={item.attributes.productRating } readOnly />        
+    </CardActions>
+  </Card>                      )
+  
 
 
-return(    <Card key={item} sx={{ maxWidth: 333, mt:5 }}>
-  <CardMedia
-    sx={{ height: 277 }}
-    image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-    title="green iguana"
-  />
-  <CardContent>
-    <Typography gutterBottom variant="h5" component="div">
-      Lizard
-    </Typography>
-    <Typography variant="body2" color="text.secondary">
-      Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica
-    </Typography>
-  </CardContent>
-  <CardActions sx={{justifyContent:"space-between"}}>
-    <Button onClick={()=>{
-
-      {yes? (<Dialogue/>):null}
-
-    }}    sx={{textTransform:"capitalize"}} size="large">
-    <AddShoppingCartOutlined sx={{mr:1}}/>
-    <Dialogue/>
-    </Button>
-<Rating name="read-only" precision={0.5} value={4.5 } readOnly />        
-  </CardActions>
-</Card>                      )
+  
+}
 
   })}
   
