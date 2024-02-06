@@ -9,6 +9,7 @@ import { AddShoppingCartOutlined } from "@mui/icons-material";
 import Dialogue from "./Dialogue";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Buttons from "./buttons";
 
 export default function MediaCard() {
 
@@ -107,6 +108,8 @@ export default function MediaCard() {
             );
           }
         })}
+
+<Buttons/>
       </Stack>
     </Container>
   );
