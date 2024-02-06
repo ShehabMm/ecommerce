@@ -3,7 +3,7 @@ import "./main.css";
 
 const Buttons = () => {
 
-  const [check, setchick] = useState(false);
+  const [check, setchick] = useState("gg");
 
 
   return (
@@ -11,24 +11,25 @@ const Buttons = () => {
 
       <button onClick={()=>{
 
-setchick(!check)
+setchick("hi")
 
 
-      }} className={true?"active":null}>hi</button>
-
-      <button onClick={()=>{
-
-setchick(!check)
-
-      }} className={true?"active":null}>bye</button>
+      }} className={check==="hi"?"active":null}>hi</button>
 
 
       <button onClick={()=>{
 
-setchick(!check)
+setchick("bye")
+
+      }} className={check==="bye"?"active":null}>bye</button>
 
 
-      }} className={true?"active":null}>cry </button>
+      <button onClick={()=>{
+
+setchick("cry")
+
+
+      }} className={check==="cry"?"active":null}>cry </button>
     </div>
   );
 };
