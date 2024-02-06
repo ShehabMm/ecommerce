@@ -29,17 +29,26 @@ export default function MediaCard() {
   };
 
   const [yes, setyes] = useState(true);
+
   useEffect(() => {
     getData();
     console.log(products);
   }, []);
 
 
-  const filteration = ()=>{
+const filteration = () => {
+  
 
-    console.log("gg")
-  }
+  const newProducts = products.filter((item)=>{
 
+    return item.attributes.productCateogry==="men"
+    })
+    
+    
+    setproducts(newProducts)
+    
+
+}
   
   
   
@@ -48,9 +57,6 @@ export default function MediaCard() {
   
   return (
     <Container sx={{ mt: 5,  }}>
-      <Button  onClick={filteration } variant="text" color="primary">
-        do it 
-      </Button>
       <Stack
         direction="row"
         sx={{

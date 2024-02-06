@@ -10,6 +10,7 @@ import MediaCard from "./components/main/Card";
 
 function App() {
 
+  
 
   return (
         <div>
