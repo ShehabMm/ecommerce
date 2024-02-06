@@ -11,6 +11,10 @@ const Main = () => {
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
+
+
+
+
   return (
     <Container id="up" sx={{position:'relative', height:"20vh",mt:4,  display:"flex", gap:5,justifyContent:"space-between", alignItems:"center" }}>
       
@@ -28,7 +32,7 @@ const Main = () => {
       onChange={handleChange}
       aria-label="Platform"
     >
-      <ToggleButton  sx={{ml:2,mr:2}} value="web">All Products</ToggleButton>
+      <ToggleButton   sx={{ml:2,mr:2}} value="web">All Products</ToggleButton>
       <ToggleButton  sx={{ml:2,mr:2}}value="android">Men category</ToggleButton>
       <ToggleButton value="ios">Women category</ToggleButton>
     </ToggleButtonGroup>

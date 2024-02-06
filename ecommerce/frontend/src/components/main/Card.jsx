@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function MediaCard() {
+
   const [products, setproducts] = useState([]);
 
   const getData = async () => {
@@ -32,8 +33,23 @@ export default function MediaCard() {
     console.log(products);
   }, []);
 
+
+  const filteration = ()=>{
+
+    console.log("gg")
+  }
+
+  
+  
+  
+  
+    
+  
   return (
     <Container sx={{ mt: 5,  }}>
+      <Button  onClick={filteration } variant="text" color="primary">
+        do it 
+      </Button>
       <Stack
         direction="row"
         sx={{
@@ -43,6 +59,7 @@ export default function MediaCard() {
           justifyContent: "center",
         }}
       >
+
         {products.map((item) => {
           if (products) {
             return (
