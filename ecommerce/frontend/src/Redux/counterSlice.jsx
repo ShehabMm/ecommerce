@@ -21,3 +21,6 @@ decrement:()=>{}
 
 
 }) 
+
+export default counterSlice.reducer
+
