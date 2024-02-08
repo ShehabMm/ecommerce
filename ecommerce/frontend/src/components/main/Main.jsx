@@ -13,12 +13,11 @@ const Main = () => {
   };
 
 
-
-
   return (
     <Container id="up" sx={{position:'relative', height:"20vh",mt:4,  display:"flex", gap:5,justifyContent:"space-between", alignItems:"center" }}>
       
       <Box sx={{display:{xs:"none", md:"block"}}}>
+
 <Typography variant="h6" color="initial">Selected Products</Typography>
 <Typography variant="body1" color="initial">All our new arrivals in an exclusive brand selection</Typography>
 
