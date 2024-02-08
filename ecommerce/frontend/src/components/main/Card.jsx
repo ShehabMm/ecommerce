@@ -10,13 +10,21 @@ import Dialogue from "./Dialogue";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Buttons from "./buttons";
-
+import { useSelector,useDispatch } from "react-redux";
+import counterSlice from '../../Redux/counterSlice'
+import {getdetails} from '../../Redux/counterSlice'
 export default function MediaCard() {
 
+  // @ts-ignore
+  const { user, loading } = useSelector((state) => state.counterSlice)
+  console.log(user)
   const [products, setproducts] = useState([]);
 
   const getData = async () => {
+
+
     const pro = await axios
+
       // @ts-ignore
       .get(`${import.meta.env.VITE_BASEURL}/api/products?populate=*`)
       .then((res) => {
@@ -31,32 +39,34 @@ export default function MediaCard() {
   const [yes, setyes] = useState(true);
 
   useEffect(() => {
+    dispatch(getdetails())
     getData();
     console.log(products);
   }, []);
 
 
-const filteration = () => {
-  
+  const filteration = () => {
 
-  const newProducts = products.filter((item)=>{
 
-    return item.attributes.productCateogry==="men"
+    const newProducts = products.filter((item) => {
+
+      return item.attributes.productCateogry === "men"
     })
-    
-    
-    setproducts(newProducts)
-    
 
-}
-  
-  
-  
-  
-    
-  
+
+    setproducts(newProducts)
+
+
+  }
+
+
+
+
+  const dispatch = useDispatch()
+
+
   return (
-    <Container sx={{ mt: 5,  }}>
+    <Container sx={{ mt: 5, }}>
       <Stack
         direction="row"
         sx={{
@@ -70,13 +80,12 @@ const filteration = () => {
         {products.map((item) => {
           if (products) {
             return (
-              <Card  key={item} sx={{ maxWidth: 333, mt: 5 }}>
+              <Card key={item} sx={{ maxWidth: 333, mt: 5 }}>
                 <CardMedia
-                  sx={{ height: 277,"&:hover":{cursor:"pointer", rotate:"10deg", transform:"scale(1.1)", transition:"0.3s "} }}
-                  // @ts-ignore 
-                  image={`${import.meta.env.VITE_BASEURL}${
-                    item.attributes.productImg.data[1].attributes.url
-                  }`}
+                  sx={{ height: 277, "&:hover": { cursor: "pointer", rotate: "10deg", transform: "scale(1.1)", transition: "0.3s " } }}
+            
+                  // @ts-ignore
+                  image={`${import.meta.env.VITE_BASEURL}${item.attributes.productImg.data[1].attributes.url }`}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -115,7 +124,7 @@ const filteration = () => {
           }
         })}
 
-<Buttons/>
+        <Buttons />
       </Stack>
     </Container>
   );
