@@ -8,22 +8,24 @@ import { Container, Rating, Stack } from "@mui/material";
 import { AddShoppingCartOutlined } from "@mui/icons-material";
 import Dialogue from "./Dialogue";
 import { useEffect, useState } from "react";
+// @ts-ignore
 import axios from "axios";
 import Buttons from "./buttons";
 import { useSelector,useDispatch } from "react-redux";
-import counterSlice from '../../Redux/counterSlice'
-import {getdetails} from '../../Redux/counterSlice'
+// @ts-ignore
+import counterSlice from '../../Redux/CounterSlice'
+import {getdetails} from '../../Redux/CounterSlice'
 export default function MediaCard() {
   const dispatch = useDispatch()
-
   // @ts-ignore
-  const { user, loading } = useSelector((state) => state.counterSlice)
+  const { user } = useSelector((state) => state.counterSlice)
   console.log(user.data)
   const [products, setproducts] = useState([]);
 console.log(products)
 
 
 
+  // @ts-ignore
   const [yes, setyes] = useState(true);
 
   useEffect(() => {
@@ -35,19 +37,19 @@ console.log(products)
 
 
 
-  const filteration = () => {
+  // const filteration = () => {
 
 
-    const newProducts = products.filter((item) => {
+  //   const newProducts = products.filter((item) => {
 
-      return item.attributes.productCateogry === "men"
-    })
-
-
-    setproducts(newProducts)
+  //     return item.attributes.productCateogry === "men"
+  //   })
 
 
-  }
+  //   setproducts(newProducts)
+
+
+  // }
 
 
 
