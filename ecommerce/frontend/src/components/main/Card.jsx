@@ -8,7 +8,6 @@ import { Container, Rating, Stack } from "@mui/material";
 import { AddShoppingCartOutlined } from "@mui/icons-material";
 import Dialogue from "./Dialogue";
 import { useEffect, useState } from "react";
-// @ts-ignore
 import axios from "axios";
 import Buttons from "./buttons";
 import { useSelector,useDispatch } from "react-redux";
@@ -16,7 +15,8 @@ import { useSelector,useDispatch } from "react-redux";
 import counterSlice from '../../Redux/CounterSlice'
 import {getdetails} from '../../Redux/CounterSlice'
 export default function MediaCard() {
-  const dispatch = useDispatch()
+
+
   // @ts-ignore
   const { user } = useSelector((state) => state.counterSlice)
   console.log(user.data)
@@ -53,6 +53,7 @@ console.log(products)
 
 
 
+  const dispatch = useDispatch()
 
 
 

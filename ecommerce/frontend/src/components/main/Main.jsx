@@ -14,10 +14,6 @@ const dispatch = useDispatch()
   };
 
 
-// @ts-ignore
-const {filterUser}=useSelector((state)=>state.counterSlice)
-
-console.log(filterUser)
 
 
 

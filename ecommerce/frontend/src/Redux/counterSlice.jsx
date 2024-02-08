@@ -3,9 +3,7 @@ import axios from "axios";
 
 export const getdetails = createAsyncThunk("na", async () => {
   try {
-    const data = await axios.get(
-      'http://localhost:1337/api/products?populate=*'
-    );
+    const data = await axios.get('http://localhost:1337/api/products?populate=*');
     return data.data;
   } catch (error) {
     return error;
@@ -20,6 +18,7 @@ const counterSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getdetails.pending, () => { });
 
+    
     builder.addCase(getdetails.fulfilled, (state, action) => {
       state.loading = false
       state.user = action.payload;
