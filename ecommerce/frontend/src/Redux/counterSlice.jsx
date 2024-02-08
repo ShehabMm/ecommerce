@@ -24,14 +24,19 @@ return data.data
 const counterSlice = createSlice({
   name: "users",
   initialState: { user: [], loading:true, error:null },
-  reducers: undefined,
+  reducers:undefined,
+  
+  
+  
+  
 
 extraReducers:(builder)=>{
 
 builder.addCase(getdetails.pending,()=>{})
 builder.addCase(getdetails.fulfilled,(state, action)=>{
 state.user = action.payload 
-  console.log(action.payload   ) 
+  
+  
 })
 
 builder.addCase(getdetails.rejected,()=>{})

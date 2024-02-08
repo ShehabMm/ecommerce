@@ -14,35 +14,25 @@ import { useSelector,useDispatch } from "react-redux";
 import counterSlice from '../../Redux/counterSlice'
 import {getdetails} from '../../Redux/counterSlice'
 export default function MediaCard() {
+  const dispatch = useDispatch()
 
   // @ts-ignore
   const { user, loading } = useSelector((state) => state.counterSlice)
-  console.log(user)
+  console.log(user.data)
   const [products, setproducts] = useState([]);
+console.log(products)
 
-  const getData = async () => {
 
-
-    const pro = await axios
-
-      // @ts-ignore
-      .get(`${import.meta.env.VITE_BASEURL}/api/products?populate=*`)
-      .then((res) => {
-        setproducts(res.data.data);
-        console.log(res.data.data[0].attributes.productImg);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   const [yes, setyes] = useState(true);
 
   useEffect(() => {
+    // @ts-ignore
     dispatch(getdetails())
-    getData();
-    console.log(products);
+    setproducts(user.data)
   }, []);
+
+
 
 
   const filteration = () => {
@@ -62,7 +52,6 @@ export default function MediaCard() {
 
 
 
-  const dispatch = useDispatch()
 
 
   return (
