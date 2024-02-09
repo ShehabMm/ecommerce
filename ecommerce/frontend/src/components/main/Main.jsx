@@ -2,8 +2,11 @@ import { Box, Container, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { check } from "../../Redux/counterSlice";
+import { all } from "../../Redux/counterSlice";
+import { woall } from "../../Redux/counterSlice";
+
 import "./main.css";
 import Scrollup from "./scrollup";
 const Main = () => {
@@ -58,13 +61,13 @@ const dispatch = useDispatch()
           onChange={handleChange}
           aria-label="Platform"
         >
-          <ToggleButton sx={{ ml: 2, mr: 2 }} value="web">
+          <ToggleButton onClick={()=>dispatch(all())}  sx={{ ml: 2, mr: 2 }} value="web">
             All Products
           </ToggleButton>
           <ToggleButton  onClick={()=>dispatch(check())}    sx={{ ml: 2, mr: 2 }} value="android">
             Men category
           </ToggleButton>
-          <ToggleButton value="ios">Women category</ToggleButton>
+          <ToggleButton  onClick={()=>dispatch(woall())}  value="ios">Women category</ToggleButton>
         </ToggleButtonGroup>
       </Box>
       <Box sx={{ height: "100vh" }}> </Box>

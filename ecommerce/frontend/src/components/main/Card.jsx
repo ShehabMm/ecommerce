@@ -50,7 +50,7 @@ const [all, setall] = useState(false);
         
 
 
-        {user.map((item) => {
+        {user.map((item)=> {
           
               return (
                 <Card key={item} sx={{ maxWidth: 333, mt: 5 }}>
