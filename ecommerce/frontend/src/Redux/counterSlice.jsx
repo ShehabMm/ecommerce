@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { useState } from "react";
 
-export const getdetails = createAsyncThunk("na", async () => {
+export const getdetails = createAsyncThunk("na", async (id,ThunkAPI) => {
   try {
     const data = await axios.get(
       "http://localhost:1337/api/products?populate=*"
@@ -15,19 +15,24 @@ export const getdetails = createAsyncThunk("na", async () => {
 
 const counterSlice = createSlice({
   name: "ggh",
-  initialState: { user: [], loading: true, error: null, filterUser: [], allusers:[],women:[] },
+  initialState: {
+    user: [],
+    loading: true,
+    error: null,
+    filterUser: [],
+    allusers: [],
+    women: [],
+  },
   reducers: {
     check: (state) => {
-    state.user = state.filterUser   },
-all:(state)=>{
-
-  state.user = state.allusers
-},
-woall:(state)=>{
-
-  state.user = state.women
-}
-
+      state.user = state.filterUser;
+    },
+    all: (state) => {
+      state.user = state.allusers;
+    },
+    woall: (state) => {
+      state.user = state.women;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getdetails.pending, () => {});
@@ -40,11 +45,13 @@ woall:(state)=>{
       );
       console.log(state.filterUser);
 
+      state.allusers = action.payload.data.filter(
+        (item) => item.attributes.productCateogry === "men" || "women"
+      );
 
-      state.allusers = action.payload.data.filter((item)=>item.attributes.productCateogry === "men"||"women")
-
-      state.women = action.payload.data.filter((item)=>item.attributes.productCateogry === "women")
-
+      state.women = action.payload.data.filter(
+        (item) => item.attributes.productCateogry === "women"
+      );
     });
 
     builder.addCase(getdetails.rejected, () => {});
@@ -52,4 +59,4 @@ woall:(state)=>{
 });
 
 export default counterSlice.reducer;
-export const { check,all ,woall} = counterSlice.actions;
+export const { check, all, woall } = counterSlice.actions;
