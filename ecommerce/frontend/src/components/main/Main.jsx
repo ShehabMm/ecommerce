@@ -2,23 +2,25 @@ import { Box, Container, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { check } from "../../Redux/counterSlice";
 import "./main.css";
 import Scrollup from "./scrollup";
-import counterSlice from '../../Redux/CounterSlice'
 const Main = () => {
+
+
+  
   const [alignment, setAlignment] = useState("web");
-const dispatch = useDispatch()
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
 
 
+const {filterUser} = useSelector((state)=>state.counterSlice)
+console.log(filterUser)
 
 
-
-
-
+const dispatch = useDispatch()
 
   return (
     <Container
@@ -59,7 +61,7 @@ const dispatch = useDispatch()
           <ToggleButton sx={{ ml: 2, mr: 2 }} value="web">
             All Products
           </ToggleButton>
-          <ToggleButton      sx={{ ml: 2, mr: 2 }} value="android">
+          <ToggleButton  onClick={()=>dispatch(check())}    sx={{ ml: 2, mr: 2 }} value="android">
             Men category
           </ToggleButton>
           <ToggleButton value="ios">Women category</ToggleButton>

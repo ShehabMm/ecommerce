@@ -8,116 +8,102 @@ import { Container, Rating, Stack } from "@mui/material";
 import { AddShoppingCartOutlined } from "@mui/icons-material";
 import Dialogue from "./Dialogue";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Buttons from "./buttons";
-import { useSelector,useDispatch } from "react-redux";
-// @ts-ignore
-import counterSlice from '../../Redux/CounterSlice'
-import {getdetails} from '../../Redux/CounterSlice'
-export default function MediaCard() {
-
-
-  // @ts-ignore
-  const { user } = useSelector((state) => state.counterSlice)
-  console.log(user.data)
-  const [products, setproducts] = useState([]);
-console.log(products)
+import { useSelector, useDispatch } from "react-redux";
+import { getdetails } from '../../Redux/counterSlice';
 
 
 
-  // @ts-ignore
+
+
+export default function  Mediaca () {
+  const {user} = useSelector((state) => state.counterSlice)
+  const {filterUser} = useSelector((state) => state.counterSlice)
+const [all, setall] = useState(false);
+  console.log(filterUser)
+  const dispatch = useDispatch()
+  const [products, setproducts] = useState(user);
   const [yes, setyes] = useState(true);
+  const[normal, setnormal]= useState(true)
 
   useEffect(() => {
-    // @ts-ignore
-    dispatch(getdetails())
-    setproducts(user.data)
+        dispatch(getdetails())
   }, []);
 
 
 
 
-  // const filteration = () => {
-
-
-  //   const newProducts = products.filter((item) => {
-
-  //     return item.attributes.productCateogry === "men"
-  //   })
-
-
-  //   setproducts(newProducts)
-
-
-  // }
 
 
 
-  const dispatch = useDispatch()
+    return (
+      <Container sx={{ mt: 5, }}>
+        <Stack
+          direction="row"
+          sx={{
+            gap: 5,
+            alignItems: "center",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+        
 
 
-
-  return (
-    <Container sx={{ mt: 5, }}>
-      <Stack
-        direction="row"
-        sx={{
-          gap: 5,
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
-
-        {products.map((item) => {
-          if (products) {
-            return (
-              <Card key={item} sx={{ maxWidth: 333, mt: 5 }}>
-                <CardMedia
-                  sx={{ height: 277, "&:hover": { cursor: "pointer", rotate: "10deg", transform: "scale(1.1)", transition: "0.3s " } }}
-            
+        {user.map((item) => {
+          
+              return (
+                <Card key={item} sx={{ maxWidth: 333, mt: 5 }}>
+                  <CardMedia
+                    sx={{ height: 277, "&:hover": { cursor: "pointer", rotate: "10deg", transform: "scale(1.1)", transition: "0.3s " } }}
+    
                   // @ts-ignore
-                  image={`${import.meta.env.VITE_BASEURL}${item.attributes.productImg.data[1].attributes.url }`}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {item.attributes.productTitle}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {item.attributes.productDescription}{" "}
-                  </Typography>
-
-                  <Typography variant="body2" color="text.secondary">
-                    {item.attributes.productPrice} ${" "}
-                  </Typography>
-                </CardContent>
-                <CardActions sx={{ justifyContent: "space-between" }}>
-                  <Button
-                    onClick={() => {
-                      {
-                        yes ? <Dialogue /> : null;
-                      }
-                    }}
-                    sx={{ textTransform: "capitalize" }}
-                    size="large"
-                  >
-                    <AddShoppingCartOutlined sx={{ mr: 1 }} />
-                    <Dialogue />
-                  </Button>
-                  <Rating
-                    name="read-only"
-                    precision={0.5}
-                    value={item.attributes.productRating}
-                    readOnly
+                  // image={`${import.meta.env.VITE_BASEURL}${item.attributes.productImg.data[1].attributes.url}`}
                   />
-                </CardActions>
-              </Card>
-            );
-          }
-        })}
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {item.attributes.productTitle}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.attributes.productDescription}
+                    </Typography>
+    
+                    <Typography variant="body2" color="text.secondary">
+                      {item.attributes.productPrice} $
+                    </Typography>
+                  </CardContent>
+                  <CardActions sx={{ justifyContent: "space-between" }}>
+                    <Button
+                      onClick={() => {
+                        {
+                          yes ? <Dialogue /> : null;
+                        }
+                      }}
+                      sx={{ textTransform: "capitalize" }}
+                      size="large"
+                    >
+                      <AddShoppingCartOutlined sx={{ mr: 1 }} />
+                      <Dialogue />
+                    </Button>
+                    <Rating
+                      name="read-only"
+                      precision={0.5}
+                      value={item.attributes.productRating}
+                      readOnly
+                    />
+                  </CardActions>
+                </Card>
+              );
+        
+              })}
 
-        <Buttons />
-      </Stack>
-    </Container>
-  );
-}
+
+          <Buttons />
+        </Stack>
+
+      </Container>
+    )};
+    
+
+
+
