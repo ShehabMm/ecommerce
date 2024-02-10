@@ -43,7 +43,7 @@ export default function Mediaca() {
 
         {user.map((item) => {
           return (
-            <Card key={item} sx={{ maxWidth: 333, mt: 5 }}>
+            <Card key={item.id} sx={{ maxWidth: 333, mt: 5 }}>
               <CardMedia
                 sx={{
                   height: 277,

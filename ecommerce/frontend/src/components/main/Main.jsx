@@ -10,20 +10,15 @@ import { woall } from "../../Redux/counterSlice";
 import "./main.css";
 import Scrollup from "./scrollup";
 const Main = () => {
-
-
-  
   const [alignment, setAlignment] = useState("web");
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
 
+  const { filterUser } = useSelector((state) => state.counterSlice);
+  console.log(filterUser);
 
-const {filterUser} = useSelector((state)=>state.counterSlice)
-console.log(filterUser)
-
-
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <Container
@@ -61,13 +56,23 @@ const dispatch = useDispatch()
           onChange={handleChange}
           aria-label="Platform"
         >
-          <ToggleButton onClick={()=>dispatch(all())}  sx={{ ml: 2, mr: 2 }} value="web">
+          <ToggleButton
+            onClick={() => dispatch(all())}
+            sx={{ ml: 2, mr: 2 }}
+            value="web"
+          >
             All Products
           </ToggleButton>
-          <ToggleButton  onClick={()=>dispatch(check())}    sx={{ ml: 2, mr: 2 }} value="android">
+          <ToggleButton
+            onClick={() => dispatch(check())}
+            sx={{ ml: 2, mr: 2 }}
+            value="android"
+          >
             Men category
           </ToggleButton>
-          <ToggleButton  onClick={()=>dispatch(woall())}  value="ios">Women category</ToggleButton>
+          <ToggleButton onClick={() => dispatch(woall())} value="ios">
+            Women category
+          </ToggleButton>
         </ToggleButtonGroup>
       </Box>
       <Box sx={{ height: "100vh" }}> </Box>
