@@ -77,7 +77,7 @@ export default function Mediaca() {
                   size="large"
                 >
                   <AddShoppingCartOutlined sx={{ mr: 1 }} />
-                  <Dialogue />
+                  <Dialogue   />
                 </Button>
                 <Rating
                   name="read-only"
