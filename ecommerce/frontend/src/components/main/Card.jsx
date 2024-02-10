@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Buttons from "./buttons";
 import { useSelector, useDispatch } from "react-redux";
 import { getdetails } from "../../Redux/counterSlice";
+import axios from "axios";
 
 export default function Mediaca() {
   const { user } = useSelector((state) => state.counterSlice);
@@ -37,6 +38,9 @@ export default function Mediaca() {
           justifyContent: "center",
         }}
       >
+        
+
+
         {user.map((item) => {
           return (
             <Card key={item} sx={{ maxWidth: 333, mt: 5 }}>
