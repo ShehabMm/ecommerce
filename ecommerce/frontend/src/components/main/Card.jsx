@@ -38,9 +38,6 @@ export default function Mediaca() {
           justifyContent: "center",
         }}
       >
-        
-
-
         {user.map((item) => {
           return (
             <Card key={item.id} sx={{ maxWidth: 333, mt: 5 }}>
@@ -81,7 +78,10 @@ export default function Mediaca() {
                   size="large"
                 >
                   <AddShoppingCartOutlined sx={{ mr: 1 }} />
-                  <Dialogue   />
+              
+              
+                  <Dialogue />
+
                 </Button>
                 <Rating
                   name="read-only"

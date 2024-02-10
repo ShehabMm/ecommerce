@@ -29,7 +29,7 @@ const Dialogue = () => {
   };
 
   return (
-    <Box  >
+    <Box   >
           <React.Fragment  >
       <Button variant="outlined" onClick={handleClickOpen}>
         Add To Cart
@@ -74,7 +74,13 @@ const Dialogue = () => {
 
   {["aaa", "bbb", "ccc"].map(()=>{  
 
-return(        <img style={{width:"200px"}} src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" />
+return(  
+  <div key={Math.random()}>
+  
+  <img style={{width:"200px"}} src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" />
+
+
+  </div>
 )
 
 
