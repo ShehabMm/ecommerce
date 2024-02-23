@@ -5,15 +5,10 @@ const mongoose = require("mongoose")
 
  const ProductSchema = new mongoose.Schema({
 
-name:{
-  
- type: String,
- required
-  
-},
+name:String,
 details:String, 
 price:String, 
-cateogty:String,
+cateogry:String,
 img:String,
 
 
@@ -23,4 +18,5 @@ timestamps:true
 }
 )
 
-export default ProductModel = mongoose.model("products", ProductSchema)
+const All = mongoose.model("All", ProductSchema)
+module.exports = All
