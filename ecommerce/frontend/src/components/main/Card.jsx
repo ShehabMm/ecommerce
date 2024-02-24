@@ -11,10 +11,12 @@ import { useEffect, useState } from "react";
 import Buttons from "./buttons";
 import { useSelector, useDispatch } from "react-redux";
 import { getdetails } from "../../Redux/counterSlice";
-import axios from "axios";
+
+
 
 export default function Mediaca() {
   const { user } = useSelector((state) => state.counterSlice);
+  console.log(user)
   const { filterUser } = useSelector((state) => state.counterSlice);
   const [all, setall] = useState(false);
   console.log(filterUser);
@@ -24,8 +26,11 @@ export default function Mediaca() {
   const [normal, setnormal] = useState(true);
 
   useEffect(() => {
-    dispatch(getdetails());
-  }, []);
+  // @ts-ignore
+  dispatch(getdetails());
+    }, []);
+
+
 
   return (
     <Container sx={{ mt: 5 }}>
@@ -38,7 +43,9 @@ export default function Mediaca() {
           justifyContent: "center",
         }}
       >
-        {user.map((item) => {
+    
+  
+        {user!==[].map((item) => {
           return (
             <Card key={item.id} sx={{ maxWidth: 333, mt: 5 }}>
               <CardMedia
@@ -51,20 +58,18 @@ export default function Mediaca() {
                     transition: "0.3s ",
                   },
                 }}
-                image={`${import.meta.env.VITE_BASEURL}${
-                  item.attributes.productImg.data[1].attributes.url
-                }`}
+                image={item.img}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {item.attributes.productTitle}
+                  {item.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {item.attributes.productDescription}
+                  {item.details}
                 </Typography>
 
                 <Typography variant="body2" color="text.secondary">
-                  {item.attributes.productPrice} $
+                  {item.price} $
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "space-between" }}>
@@ -86,7 +91,7 @@ export default function Mediaca() {
                 <Rating
                   name="read-only"
                   precision={0.5}
-                  value={item.attributes.productRating}
+                  value={item.id}
                   readOnly
                 />
               </CardActions>
@@ -95,6 +100,7 @@ export default function Mediaca() {
         })}
 
         <Buttons />
+      
       </Stack>
     </Container>
   );

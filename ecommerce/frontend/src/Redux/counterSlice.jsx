@@ -1,12 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useState } from "react";
 
 export const getdetails = createAsyncThunk("na", async (id,ThunkAPI) => {
   try {
     const data = await axios.get("http://localhost:3001/apiiii");
-    return data.data;
+    console.log(data.data.data)
+
+    return data.data.data;
+
   } catch (error) {
+
     return error;
   }
 });
@@ -36,19 +39,20 @@ const counterSlice = createSlice({
     builder.addCase(getdetails.pending, () => {});
     builder.addCase(getdetails.fulfilled, (state, action) => {
       state.loading = false;
-      state.user = action.payload.data;
-      console.log(action.payload.data);
-      state.filterUser = action.payload.data.filter(
-        (item) => item.attributes.productCateogry === "men"
+      state.user = action.payload;
+      
+      console.log(action.payload);
+      state.filterUser = action.payload.filter(
+        (item) => item.cateogry === "men"
       );
       console.log(state.filterUser);
 
       state.allusers = action.payload.data.filter(
-        (item) => item.attributes.productCateogry === "men" || "women"
+        (item) => item.cateogry === "men" || "women"
       );
 
       state.women = action.payload.data.filter(
-        (item) => item.attributes.productCateogry === "women"
+        (item) => item.cateogry === "women"
       );
     });
 

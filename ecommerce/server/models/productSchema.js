@@ -7,7 +7,9 @@ const Scheme = mongoose.Schema;
 
 name:String,
 details:String, 
-
+cateogry:String,
+price:Number,
+img:String,
 
 },
 {
