@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 
 
-mongoose.connect("mongodb://shehab:1234@ac-smhji2v-shard-00-00.kiiwcap.mongodb.net:27017,ac-smhji2v-shard-00-01.kiiwcap.mongodb.net:27017,ac-smhji2v-shard-00-02.kiiwcap.mongodb.net:27017/ecommercenewstyle?ssl=true&replicaSet=atlas-jilp6g-shard-0&authSource=admin&retryWrites=true&w=majority").then(()=>{
+mongoose.connect("mongodb://shehab:12345@ac-u1jqkwp-shard-00-00.g4yolth.mongodb.net:27017,ac-u1jqkwp-shard-00-01.g4yolth.mongodb.net:27017,ac-u1jqkwp-shard-00-02.g4yolth.mongodb.net:27017/lily?ssl=true&replicaSet=atlas-1berg0-shard-0&authSource=admin&retryWrites=true&w=majority&appName=newEcommerce").then(()=>{
 
 
 app.listen(3001, ()=>{
@@ -35,11 +35,28 @@ console.log("no")
 
 app.get("/productAll", (req, res)=>{
 
-  All.find().then((result) => {
-    console.log(result)
-  }).catch((err) => {
-    console.log(err)
-  })
+ All.find().then((result) => {
+  console.log(result)
+ })
 
 
+
+
+
+
+
+
+})
+
+app.get("/apiiii", async (req, res) => {
+
+  try {
+
+    const ali = await All.find({})
+
+    res.send({ data: ali })
+
+  } catch (error) {
+
+  }
 })

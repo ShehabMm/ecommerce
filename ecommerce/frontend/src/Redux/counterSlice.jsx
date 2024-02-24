@@ -4,9 +4,7 @@ import { useState } from "react";
 
 export const getdetails = createAsyncThunk("na", async (id,ThunkAPI) => {
   try {
-    const data = await axios.get(
-      "http://localhost:1337/api/products?populate=*"
-    );
+    const data = await axios.get("http://localhost:3001/apiiii");
     return data.data;
   } catch (error) {
     return error;
@@ -60,3 +58,7 @@ const counterSlice = createSlice({
 
 export default counterSlice.reducer;
 export const { check, all, woall } = counterSlice.actions;
+
+
+
+// "http://localhost:1337/api/products?populate=*"
