@@ -9,6 +9,7 @@ name:String,
 details:String, 
 cateogry:String,
 price:Number,
+rating:Number,
 img:String,
 
 },

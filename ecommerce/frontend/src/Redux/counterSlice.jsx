@@ -15,7 +15,28 @@ export const getdetails = createAsyncThunk("na", async (id,ThunkAPI) => {
   }
 });
 
-const userData =  {user:[], loading: true, error: null,filterUser: [],
+
+
+export const getdetailsById = createAsyncThunk("la", async(id, ThunkApi)=>{
+console.log(id)
+try {
+  const data = await axios.get("http://localhost:3001/apiiii")
+const chosen = data.data.data.filter((item)=>{
+  return item._id === id 
+
+
+  })
+  return data
+
+} catch (error) {
+  return error
+}
+
+
+
+})
+
+const userData =  {user:[],userById:[], loading: true, error: null,filterUser: [],
 }
 const counterSlice = createSlice({
   name: "ggh",
@@ -30,6 +51,12 @@ console.log(action.payload.data.data)
 
 })
 
+builder.addCase(getdetailsById.fulfilled,(state,action )=>{
+
+  state.userById = action.payload
+console.log(action.payload.data)
+
+})
 
 
   },

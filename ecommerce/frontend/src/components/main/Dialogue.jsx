@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -9,6 +9,10 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { Paper , Box, Stack } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getdetailsById } from '../../Redux/counterSlice';
+import axios from 'axios';
 
 const Dialogue = () => {
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -28,8 +32,25 @@ const Dialogue = () => {
     setOpen(false);
   };
 
+
+const [detail, setdetails]=useState(null)
+const {id} = useParams()
+useEffect(()=>{
+
+axios.get("http://localhost:3001/apiiii/65d943b61042de4940c25d3d").then((res) => {
+
+setdetails(res.data.data)
+
+})
+console.log(detail)
+
+},[])
+console.log(id)
   return (
     <Box   >
+{detail === null? (<h1>loading</h1>):   
+
+
           <React.Fragment  >
       <Button variant="outlined" onClick={handleClickOpen}>
         Add To Cart
@@ -42,7 +63,11 @@ const Dialogue = () => {
       >
         
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Modal title
+      
+
+                    { detail.name}
+
+    
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -61,7 +86,7 @@ const Dialogue = () => {
         <Box sx={{ display:"flex",  width:"100%", height:"60vh", justifyContent:"space-between", flexDirection:{xs:"column", md:"row"}, }}>
 
         <Stack sx={{width:"30%", height:"100%", justifyContent:"center", alignItems:"center"}}>
-<img style={{height:"60%", width:"100%"}} src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="" /></Stack>
+<img style={{height:"60%", width:"100%"}} src={detail.img} alt="" /></Stack>
 
 
 <Stack sx={{display:"flex",justifyContent:"center", p:2,width:"70%", textAlign:{xs:"center", md:"left"}, gap:2, ml:2, alignSelf:"center"}}>
@@ -103,7 +128,7 @@ return(
         </DialogActions>
       </BootstrapDialog>
     </React.Fragment>
-
+  }
     </Box>
   );
 }

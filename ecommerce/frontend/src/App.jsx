@@ -7,6 +7,7 @@ import Hero2 from "./components/hero/Hero2";
 import Main from "./components/main/Main";
 import Mediaca from "./components/main/card";
 import { Route, Routes } from "react-router-dom";
+import Dialogue from './components/main/Dialogue'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
       <Routes>
         <Route path="/products" element={<pro />} />
+        <Route path="/productdetails/:id"  element={<Dialogue/>}/>
       </Routes>
     </div>
   );

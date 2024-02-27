@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Buttons from "./buttons";
 import { useSelector, useDispatch } from "react-redux";
 import { getdetails } from "../../Redux/counterSlice";
+import { Link } from "react-router-dom";
 
 
 export default function Mediaca() {
@@ -75,6 +76,7 @@ export default function Mediaca() {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "space-between" }}>
+                <Link to={`/productdetails/${item._id}`}>
                 <Button
                   onClick={() => {
                     {
@@ -90,10 +92,11 @@ export default function Mediaca() {
                   <Dialogue />
 
                 </Button>
+                </Link>
                 <Rating
                   name="read-only"
                   precision={0.5}
-                  value={220}
+                  value={item.rating}
                   readOnly
                 />
               </CardActions>
