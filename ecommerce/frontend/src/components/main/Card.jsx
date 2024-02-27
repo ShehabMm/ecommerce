@@ -13,10 +13,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { getdetails } from "../../Redux/counterSlice";
 
 
-
 export default function Mediaca() {
-  const { user } = useSelector((state) => state.counterSlice);
+  const  {user} = useSelector((state) => state.counterSlice);
   console.log(user)
+
+
   const { filterUser } = useSelector((state) => state.counterSlice);
   const [all, setall] = useState(false);
   console.log(filterUser);
@@ -26,9 +27,10 @@ export default function Mediaca() {
   const [normal, setnormal] = useState(true);
 
   useEffect(() => {
-  // @ts-ignore
-  dispatch(getdetails());
+    dispatch(getdetails());
     }, []);
+
+
 
 
 
@@ -45,7 +47,7 @@ export default function Mediaca() {
       >
     
   
-        {user!==[].map((item) => {
+        {user.map((item) => {
           return (
             <Card key={item.id} sx={{ maxWidth: 333, mt: 5 }}>
               <CardMedia
@@ -62,14 +64,14 @@ export default function Mediaca() {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {item.name}
+                {item.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {item.details}
-                </Typography>
+{item.details}        
+    </Typography>
 
                 <Typography variant="body2" color="text.secondary">
-                  {item.price} $
+              {item.price} $
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "space-between" }}>
@@ -91,7 +93,7 @@ export default function Mediaca() {
                 <Rating
                   name="read-only"
                   precision={0.5}
-                  value={item.id}
+                  value={220}
                   readOnly
                 />
               </CardActions>

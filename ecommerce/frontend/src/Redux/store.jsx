@@ -7,8 +7,12 @@ export  const store = configureStore({
 reducer: {
 
   counterSlice,
+},
 
-}
+middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+
+  serializableCheck: false
+}),
 
 
 })
