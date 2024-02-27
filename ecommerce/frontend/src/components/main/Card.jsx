@@ -8,7 +8,6 @@ import { Container, Rating, Stack } from "@mui/material";
 import { AddShoppingCartOutlined } from "@mui/icons-material";
 import Dialogue from "./Dialogue";
 import { useEffect, useState } from "react";
-import Buttons from "./buttons";
 import { useSelector, useDispatch } from "react-redux";
 import { getdetails } from "../../Redux/counterSlice";
 import { Link } from "react-router-dom";
@@ -40,10 +39,12 @@ export default function Mediaca() {
       <Stack
         direction="row"
         sx={{
+          display:"flex",
           gap: 5,
-          alignItems: "center",
+          alignItems:"center",
           flexWrap: "wrap",
           justifyContent: "center",
+
         }}
       >
     
@@ -53,6 +54,7 @@ export default function Mediaca() {
             <Card key={item.id} sx={{ maxWidth: 333, mt: 5 }}>
               <CardMedia
                 sx={{
+
                   height: 277,
                   "&:hover": {
                     cursor: "pointer",
@@ -63,7 +65,7 @@ export default function Mediaca() {
                 }}
                 image={item.img}
               />
-              <CardContent>
+              <CardContent >
                 <Typography gutterBottom variant="h5" component="div">
                 {item.name}
                 </Typography>
@@ -75,7 +77,7 @@ export default function Mediaca() {
               {item.price} $
                 </Typography>
               </CardContent>
-              <CardActions sx={{ justifyContent: "space-between" }}>
+              <CardActions sx={{  justifyContent: "space-between" }}>
                 <Link to={`/productdetails/${item._id}`}>
                 <Button
                   onClick={() => {
@@ -104,7 +106,6 @@ export default function Mediaca() {
           );
         })}
 
-        <Buttons />
       
       </Stack>
     </Container>

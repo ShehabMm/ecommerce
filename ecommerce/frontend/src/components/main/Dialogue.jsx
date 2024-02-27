@@ -37,7 +37,7 @@ const [detail, setdetails]=useState(null)
 const {id} = useParams()
 useEffect(()=>{
 
-axios.get("http://localhost:3001/apiiii/65d943b61042de4940c25d3d").then((res) => {
+const data = axios.get('http://localhost:3001/apiiii/65d9524f1042de4940c25d3e').then((res) => {
 
 setdetails(res.data.data)
 
@@ -47,8 +47,8 @@ console.log(detail)
 },[])
 console.log(id)
   return (
-    <Box   >
-{detail === null? (<h1>loading</h1>):   
+    <Box  >
+
 
 
           <React.Fragment  >
@@ -65,7 +65,7 @@ console.log(id)
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
       
 
-                    { detail.name}
+                jack
 
     
         </DialogTitle>
@@ -86,7 +86,7 @@ console.log(id)
         <Box sx={{ display:"flex",  width:"100%", height:"60vh", justifyContent:"space-between", flexDirection:{xs:"column", md:"row"}, }}>
 
         <Stack sx={{width:"30%", height:"100%", justifyContent:"center", alignItems:"center"}}>
-<img style={{height:"60%", width:"100%"}} src={detail.img} alt="" /></Stack>
+<img style={{height:"60%", width:"100%"}} src={""} alt="" /></Stack>
 
 
 <Stack sx={{display:"flex",justifyContent:"center", p:2,width:"70%", textAlign:{xs:"center", md:"left"}, gap:2, ml:2, alignSelf:"center"}}>
@@ -128,7 +128,7 @@ return(
         </DialogActions>
       </BootstrapDialog>
     </React.Fragment>
-  }
+
     </Box>
   );
 }

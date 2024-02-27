@@ -64,7 +64,7 @@ app.get("/apiiii", async (req, res) => {
 app.get("/apiiii/:id", async (req, res) => {
 
   try {
-    const { id } = req.params
+    const { id } = req.params.id
     const ali = await All.findById({_id:id})
     res.send({ data: ali })
 
