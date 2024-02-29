@@ -50,7 +50,7 @@ console.log(detail)
 },[])
 console.log(id)
   return (
-    <Box  >
+    <Box>
 
 
 
