@@ -10,8 +10,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { Paper , Box, Stack } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getdetailsById } from '../../Redux/counterSlice';
 import axios from 'axios';
 
 const Dialogue = () => {
@@ -35,14 +33,19 @@ const Dialogue = () => {
 
 const [detail, setdetails]=useState(null)
 const {id} = useParams()
+
 useEffect(()=>{
+  setTimeout(() => {
+    const data = axios.get(`http://localhost:3001/apiiii/${id}`).then((res) => {
 
-const data = axios.get('http://localhost:3001/apiiii/65d9524f1042de4940c25d3e').then((res) => {
+  setdetails(res.data.data)
 
-setdetails(res.data.data)
 
 })
 console.log(detail)
+
+  }, 2000) ; 
+
 
 },[])
 console.log(id)
@@ -65,7 +68,7 @@ console.log(id)
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
       
 
-                jack
+        gh
 
     
         </DialogTitle>
